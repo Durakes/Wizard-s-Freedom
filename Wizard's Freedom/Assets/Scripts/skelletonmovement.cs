@@ -10,10 +10,13 @@ public class skelletonmovement : MonoBehaviour
     private int indiceRuta;
     private NavMeshAgent agente;
     private bool personajeDetectado;
+    private SpriteRenderer sprite;
+    private Transform objetivo;
 
     private void Awake()
     {
         agente = GetComponent <NavMeshAgent>();
+        sprite = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {
@@ -44,7 +47,7 @@ public class skelletonmovement : MonoBehaviour
         }
 
         MovePersonaje(personajeDetectado);
-        
+        Rotar();
     }
 
     void MovePersonaje(bool esDetectado)
@@ -52,10 +55,24 @@ public class skelletonmovement : MonoBehaviour
         if(esDetectado)
         {
             agente.SetDestination(player.position);
+            objetivo = player;
+
         }
         else 
         {
             agente.SetDestination(puntoRuta[indiceRuta].position);
+            objetivo = puntoRuta[indiceRuta];
+        }
+    }
+    void Rotar()
+    {
+        if(this.transform.position.x > objetivo.position.x)
+        {
+            sprite.flipX=true;
+        }
+        else 
+        {
+            sprite.flipX =false;
         }
     }
 }
