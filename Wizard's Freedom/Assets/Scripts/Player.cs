@@ -10,14 +10,10 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        if(lifes >= 0)
-        {
-            PlayerDeath();
-            isAlive = false;
-        }
+       PlayerDeath();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         //Si se trabaja con Capas, o con tags o simplemente con el nombre
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
@@ -28,10 +24,19 @@ public class Player : MonoBehaviour
         {
             // Sirve para poner el powerUp si es que se realiza
         }
-    }
+    }*/
 
-    void PlayerDeath()
+    public void PlayerDeath()
     {
-        //Codigo de animacion del personaje muriendo.
+         if(lifes >= 0)
+        {
+            lifes--;
+            //PlayerDeath();
+            //isAlive = false;
+            if (lifes == 0)
+            {
+                Debug.Log("PIPIPIIP");
+            }
+        }
     }
 }

@@ -12,11 +12,15 @@ public class skelletonmovement : MonoBehaviour
     private bool personajeDetectado;
     private SpriteRenderer sprite;
     private Transform objetivo;
+    private Animator anm;
+    //private Animator anmattack;
 
     private void Awake()
     {
         agente = GetComponent <NavMeshAgent>();
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        anm = GetComponentInChildren<Animator>();
+        //anmattack = GetComponentInChildren<Animator>();
     }
     private void Start()
     {
@@ -24,9 +28,10 @@ public class skelletonmovement : MonoBehaviour
         agente.updateRotation = false;
         agente.updateUpAxis = false;
     }
-    private void Update()
+    private void FixedUpdate()
     {
 
+        
         this.transform.position = new Vector3(transform.position.x,transform.position.y,0);
         float distancia = Vector3.Distance(player.position, this.transform.position);
         if (this.transform.position == puntoRuta[indiceRuta].position)
@@ -56,7 +61,7 @@ public class skelletonmovement : MonoBehaviour
         {
             agente.SetDestination(player.position);
             objetivo = player;
-
+            anm.SetFloat ("run",Mathf.Abs (1));
         }
         else 
         {
@@ -74,5 +79,12 @@ public class skelletonmovement : MonoBehaviour
         {
             sprite.flipX =false;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+         if (other.gameObject.CompareTag("Player"))
+         {
+            anm.SetTrigger("attack");
+         }
     }
 }
