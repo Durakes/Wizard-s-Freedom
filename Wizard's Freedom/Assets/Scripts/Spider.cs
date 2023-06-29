@@ -23,7 +23,6 @@ public class Spider : MonoBehaviour
         animator = GetComponent<Animator>();
         puntoInicial = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 
     private void Update()
@@ -57,5 +56,4 @@ public class Spider : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
-
 }

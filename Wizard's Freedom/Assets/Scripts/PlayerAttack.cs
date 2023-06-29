@@ -10,7 +10,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]private float nextFire;
     void FixedUpdate()
     {
-        Debug.Log(playerMovement.moveInput);
         if(Input.GetKey(KeyCode.Space) && Time.time > nextFire)
         {
             nextFire = Time.time + 0.3f;
@@ -21,10 +20,11 @@ public class PlayerAttack : MonoBehaviour
     void CreatePlayerBullet()
     {
         Vector3 positionPlayer = playerMovement.moveInput;
+        Vector3 positionPlayerIdle = playerMovement.lastMove;
         if(positionPlayer != Vector3.zero)
-            bullet = Instantiate(bulletPrefab, transform.position + positionPlayer,  Quaternion.identity);
+            bullet = Instantiate(bulletPrefab, transform.position + (positionPlayer * 0.7f),  Quaternion.identity);
         else
-            bullet = Instantiate(bulletPrefab, transform.position + Vector3.down,  Quaternion.identity);
+            bullet = Instantiate(bulletPrefab, transform.position +  (positionPlayerIdle * 0.7f),  Quaternion.identity);
     }
 
     void ShootingBullet()
@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         }else
         { 
             CreatePlayerBullet();
-            bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.down * speedFire, ForceMode2D.Impulse);
+            bullet.GetComponent<Rigidbody2D>().AddForce(playerMovement.lastMove * speedFire, ForceMode2D.Impulse);
         }
     }
 }

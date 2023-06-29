@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
             //isAlive = false;
             if (lifes == 0)
             {
-                Debug.Log("PIPIPIIP");
+                //Debug.Log("PIPIPIIP");
             }
         }
     }
