@@ -14,7 +14,6 @@ public class BossAI : MonoBehaviour
     public GameObject bulletBossPrefab;
     private StateBoss state;
     private float timeAttacking;
-    private int index1;
     private int lifes;
     private float timeVulnerable;
     private float angle = 0f;
@@ -38,6 +37,7 @@ public class BossAI : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         state = StateBoss.Idle;
         Physics2D.IgnoreCollision(bulletBossPrefab.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(bulletBossPrefab.GetComponent<Collider2D>(), bulletBossPrefab.GetComponent<Collider2D>());
     }
 
     private void Update()
@@ -73,7 +73,6 @@ public class BossAI : MonoBehaviour
                 movement = PlayerPosition();
                 break;
             case StateBoss.Vulnerable: //Implementar
-                index1 = 0;
                 Debug.Log("Waiting");
                 if(Time.time > timeVulnerable + 2.0f)
                 {
@@ -173,7 +172,6 @@ public class BossAI : MonoBehaviour
 
     void FanAttack()
     {
-
         // Bala 1
         float bulDirX = Mathf.Cos((10 * Mathf.PI) / 180f) * movement.x - Mathf.Sin((10 * Mathf.PI) / 180f) * movement.y;
         float bulDirY = Mathf.Sin((10 * Mathf.PI) / 180f) * movement.x + Mathf.Cos((10 * Mathf.PI) / 180f) * movement.y;
@@ -181,22 +179,28 @@ public class BossAI : MonoBehaviour
         Vector2 bulDir = (bulMoveVector).normalized;
 
         // Bala 2
-        float bulDirX2 = Mathf.Cos((350 * Mathf.PI) / 180f) * movement.x - Mathf.Sin((350 * Mathf.PI) / 180f) * movement.y;
-        float bulDirY2 = Mathf.Sin((350 * Mathf.PI) / 180f) * movement.x + Mathf.Cos((350 * Mathf.PI) / 180f) * movement.y;
+        float bulDirX2 = Mathf.Cos((350 * Mathf.PI) / 180f) * movement.x - Mathf.Sin((345 * Mathf.PI) / 180f) * movement.y;
+        float bulDirY2 = Mathf.Sin((350 * Mathf.PI) / 180f) * movement.x + Mathf.Cos((345 * Mathf.PI) / 180f) * movement.y;
         Vector3 bulMoveVector2 = new Vector3(bulDirX2, bulDirY2, 0f);
         Vector2 bulDir2 = (bulMoveVector2).normalized;
 
-
         bulletBoss = Instantiate(bulletBossPrefab, transform.position + ((Vector3)movement * 1.3f),  Quaternion.identity); //1.3f cambiar valor
-        GameObject bullet2 = Instantiate(bulletBossPrefab, transform.position + ((Vector3)bulDir * 1.3f),  Quaternion.identity); //1.3f cambiar valor
-        GameObject bullet3 = Instantiate(bulletBossPrefab, transform.position + ((Vector3)bulDir2 * 1.3f),  Quaternion.identity); //1.3f cambiar valor
         bulletBoss.GetComponent<Rigidbody2D>().AddForce(movement * 7f, ForceMode2D.Impulse); //7f cambiar valor
-        bullet2.GetComponent<Rigidbody2D>().AddForce(bulDir * 7f, ForceMode2D.Impulse); //7f cambiar valor
-        bullet3.GetComponent<Rigidbody2D>().AddForce(bulDir2 * 7f, ForceMode2D.Impulse); //7f cambiar valor
+        GameObject bullet2 = Instantiate(bulletBossPrefab, transform.position + ((Vector3)bulDir * 1.3f),  Quaternion.identity); //1.3f cambiar valor
+        bullet2.GetComponent<Rigidbody2D>().AddForce(bulDir * 7f, ForceMode2D.Impulse);
+        GameObject bullet3 = Instantiate(bulletBossPrefab, transform.position + ((Vector3)bulDir2 * 1.3f),  Quaternion.identity); //1.3f cambiar valor
+        bullet3.GetComponent<Rigidbody2D>().AddForce(bulDir2 * 7f, ForceMode2D.Impulse); //7f cambiar valor*/
+        Physics2D.IgnoreCollision(bulletBoss.GetComponent<Collider2D>(), bullet2.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(bulletBoss.GetComponent<Collider2D>(), bullet3.GetComponent<Collider2D>()); //7f cambiar valor
+        Physics2D.IgnoreCollision(bullet2.GetComponent<Collider2D>(), bullet3.GetComponent<Collider2D>()); //7f cambiar valor
+        Debug.Log("Fan");
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        lifes--;
+        if(other.gameObject.CompareTag("PlayerBullet"))
+        {
+            lifes--;
+        }
     }
 }
