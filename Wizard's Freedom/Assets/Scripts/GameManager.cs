@@ -101,8 +101,14 @@ public class GameManager : MonoBehaviour
             case GameState.Phase1:
                 InvokePhase1();
                 break;
+            case GameState.Phase2:
+                InvokePhase2();
+                break;
             case GameState.Phase3:
                 InvokePhase3();
+                break;
+            case GameState.Phase4:
+                InvokePhase4();
                 break;
             case GameState.Phase5:
                 InvokePhase5();
