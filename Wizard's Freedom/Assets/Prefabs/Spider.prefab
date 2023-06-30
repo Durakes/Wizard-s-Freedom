@@ -119,10 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75ab67acfaeab41bf910c3d0c62651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador: {fileID: 0}
+  jugador: {fileID: 7319080590303157502, guid: 9746ee461ad696d478b9dcafe4c6bf6c, type: 3}
   distancia: 0
   puntoInicial: {x: 0, y: 0, z: 0}
-  Player: {fileID: 0}
+  Player: {fileID: 7319080590303157491, guid: 9746ee461ad696d478b9dcafe4c6bf6c, type: 3}
 --- !u!61 &798491608873476643
 BoxCollider2D:
   m_ObjectHideFlags: 0

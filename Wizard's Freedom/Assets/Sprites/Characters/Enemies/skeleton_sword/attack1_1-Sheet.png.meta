@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 4543382176031213961
     second: attack1_1-Sheet_5
+  - first:
+      213: 7387784105633336807
+    second: attack1_1-Sheet_7
+  - first:
+      213: 4009889563135084991
+    second: attack1_1-Sheet_8
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -50,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,10 +119,10 @@ TextureImporter:
       name: attack1_1-Sheet_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 6
-        width: 17
-        height: 29
+        x: 28
+        y: 0
+        width: 23
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +140,10 @@ TextureImporter:
       name: attack1_1-Sheet_1
       rect:
         serializedVersion: 2
-        x: 130
-        y: 6
-        width: 19
-        height: 29
+        x: 129
+        y: 0
+        width: 23
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +161,10 @@ TextureImporter:
       name: attack1_1-Sheet_2
       rect:
         serializedVersion: 2
-        x: 230
-        y: 6
-        width: 23
-        height: 29
+        x: 229
+        y: 0
+        width: 26
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,55 +179,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack1_1-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 333
-        y: 6
-        width: 47
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 18e632490b5da90b0800000000000000
-      internalID: -5721025422244483455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack1_1-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 6
-        width: 42
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c73716d468e5a62f0800000000000000
-      internalID: -978866038082800772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: attack1_1-Sheet_5
       rect:
         serializedVersion: 2
         x: 533
-        y: 6
-        width: 27
-        height: 29
+        y: 0
+        width: 29
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,6 +195,48 @@ TextureImporter:
       bones: []
       spriteID: 9898e2964065d0f30800000000000000
       internalID: 4543382176031213961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack1_1-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1
+        width: 50
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed4d8d708ea68660800000000000000
+      internalID: 7387784105633336807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack1_1-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 0
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb98637ff4df5a730800000000000000
+      internalID: 4009889563135084991
       vertices: []
       indices: 
       edges: []
