@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     void Awake()
     {
-        lifes = 3;
+        lifes = 5;
         anim = GetComponent<Animator>();
     }
     void Update()
