@@ -47,7 +47,7 @@ public class EntityAI : MonoBehaviour
     void Update()
     {
         float distancePlayer = Vector2.Distance(this.transform.position, player.position);
-        if(!isFury && lifes <= 9)
+        if(!isFury && lifes <= 5)
         {
             Fury();
             isFury = true;

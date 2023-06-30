@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState State;
+    public GameObject Panel;
+    public GameObject ImageLose;
+    public GameObject ImageWin;
     public GameObject spiderPrefab;
     public GameObject gollemPrefab;
     public GameObject bossPrefab;
@@ -20,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
+        Panel.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
@@ -74,7 +79,7 @@ public class GameManager : MonoBehaviour
                 Invoke(nameof(WinScreen), 1.0f);
                 break;       
             case GameState.LoseScreen:
-                Invoke(nameof(LoseScreen), 5.0f);
+                Invoke(nameof(LoseScreen), 1.0f);
                 break;
             default:
             break;
@@ -99,7 +104,7 @@ public class GameManager : MonoBehaviour
         switch(newState)
         {
             case GameState.Phase1:
-                InvokePhase2();
+                InvokePhase1();
                 break;
             case GameState.Phase2:
                 InvokePhase2();
@@ -163,13 +168,20 @@ public class GameManager : MonoBehaviour
 
     void LoseScreen()
     {
-        //! Implementar pantalla de GameOver
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Panel.SetActive(true);
+        ImageLose.SetActive(true);
+        ImageWin.SetActive(false);
+        if(Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     void WinScreen()
     {
-        Debug.Log("Ganaste");
+        Panel.SetActive(true);
+        ImageLose.SetActive(false);
+        ImageWin.SetActive(true);
 
         if(Input.GetKey(KeyCode.R))
         {
