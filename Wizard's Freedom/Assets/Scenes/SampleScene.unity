@@ -11860,11 +11860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7319080590303157502, guid: 9746ee461ad696d478b9dcafe4c6bf6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.802612
+      value: -33.36
       objectReference: {fileID: 0}
     - target: {fileID: 7319080590303157502, guid: 9746ee461ad696d478b9dcafe4c6bf6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6182442
+      value: -1.27
       objectReference: {fileID: 0}
     - target: {fileID: 7319080590303157502, guid: 9746ee461ad696d478b9dcafe4c6bf6c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44832,11 +44832,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1564078889}
-  - component: {fileID: 1564078891}
-  - component: {fileID: 1564078890}
-  m_Layer: 5
-  m_Name: Panel
+  - component: {fileID: 1587939564}
+  - component: {fileID: 1587939563}
+  - component: {fileID: 1587939562}
+  - component: {fileID: 1587939565}
+  - component: {fileID: 1587939566}
+  - component: {fileID: 1587939567}
+  m_Layer: 0
+  m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
