@@ -9,7 +9,7 @@ public class skelleton : MonoBehaviour
     public Vector3 puntoInicial;
     private Animator animator;
     private SpriteRenderer spriterenderer;
-
+    
 
 
     // Start is called before the first frame update
@@ -31,11 +31,22 @@ public class skelleton : MonoBehaviour
     {
         if(transform.position.x < objetivo.x)
         {
-            spriterenderer.flipX = true; //Si la posicion que tiene actualmente es menor que el objetivo, invierte la posicion
+            transform.localScale = new Vector3(5,5);
+            //spriterenderer.flipX = true; //Si la posicion que tiene actualmente es menor que el objetivo, invierte la posicion
         }
         else
         {
-            spriterenderer.flipX = false;
+            transform.localScale = new Vector3(-5,5);
+            //spriterenderer.flipX = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+    if (collision.gameObject.CompareTag("Player"))
+        {
+        animator.SetTrigger("Ataca");
+         }
+    }
+    
 }
