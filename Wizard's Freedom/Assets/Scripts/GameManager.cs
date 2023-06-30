@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -9,12 +10,14 @@ public class GameManager : MonoBehaviour
     public GameObject spiderPrefab;
     public GameObject gollemPrefab;
     public GameObject bossPrefab;
+    private GameObject player;
     [SerializeField] Vector2[] spiderPositions;
     [SerializeField] Vector2 gollemPosition;
     [SerializeField] Vector2 bossPosision;
     private void Awake()
     {
         Instance = this;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,55 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!player.GetComponent<Player>().isAlive)
+        {
+            State = GameState.LoseScreen;
+        }
+        switch(State)
+        {
+            case GameState.Phase1:
+                if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    //! implementar fase 2
+                    UpdateGameState(GameState.Phase3);
+                }
+                break;
+            case GameState.Phase2:
+                if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    UpdateGameState(GameState.Phase3);
+                }
+                break;
+            case GameState.Phase3:
+                if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    //! Implementar fase 4
+                    UpdateGameState(GameState.Phase5);
+                }
+                break;
+            case GameState.Phase4:
+                if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    UpdateGameState(GameState.Phase5);
+                }
+                Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
+                break;
+            case GameState.Phase5:
+                if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    UpdateGameState(GameState.WinScreen);
+                }
+                Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
+                break; 
+            case GameState.WinScreen:
+                Invoke(nameof(WinScreen), 1.0f);
+                break;       
+            case GameState.LoseScreen:
+                Invoke(nameof(LoseScreen), 5.0f);
+                break;
+            default:
+            break;
+        }
     }
 
     public enum GameState
@@ -48,6 +99,9 @@ public class GameManager : MonoBehaviour
             case GameState.Phase1:
                 InvokePhase1();
                 break;
+            case GameState.Phase3:
+                InvokePhase3();
+                break;   
             default:
                 break;
         }
@@ -84,5 +138,21 @@ public class GameManager : MonoBehaviour
     void InvokePhase5()
     {
         GameObject boss = Instantiate(bossPrefab, (Vector3)bossPosision, Quaternion.identity);
+    }
+
+    void LoseScreen()
+    {
+        //! Implementar pantalla de GameOver
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void WinScreen()
+    {
+        Debug.Log("Ganaste");
+
+        if(Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

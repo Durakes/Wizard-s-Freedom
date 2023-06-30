@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9056927554915223}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   rangeDistance: 7
   moveSpeed: 1.5
   player: {fileID: 7319080590303157502, guid: 9746ee461ad696d478b9dcafe4c6bf6c, type: 3}
-  bulletBossPrefab: {fileID: 8934852244133616972, guid: 35dcd24a8b106a34b90739bf6180ffe7, type: 3}
+  bulletBossPrefab: {fileID: 7685175281331463239, guid: 631b64a8debd2224cabacf0c227c211c, type: 3}
 --- !u!61 &9056927554915220
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -22,9 +22,9 @@ public class PlayerAttack : MonoBehaviour
         Vector3 positionPlayer = playerMovement.moveInput;
         Vector3 positionPlayerIdle = playerMovement.lastMove;
         if(positionPlayer != Vector3.zero)
-            bullet = Instantiate(bulletPrefab, transform.position + (positionPlayer * 0.7f),  Quaternion.identity);
+            bullet = Instantiate(bulletPrefab, transform.position + (positionPlayer * 0.9f),  Quaternion.identity);
         else
-            bullet = Instantiate(bulletPrefab, transform.position +  (positionPlayerIdle * 0.7f),  Quaternion.identity);
+            bullet = Instantiate(bulletPrefab, transform.position +  (positionPlayerIdle * 0.9f),  Quaternion.identity);
     }
 
     void ShootingBullet()

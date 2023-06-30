@@ -3,33 +3,34 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] UIMaganer uiManager;
-    private int lifes = 3;
-    //private bool isAlive = true;
+    private int lifes;
+    public bool isAlive = true;
     private Animator anim;
     void Awake()
     {
-       anim = GetComponent<Animator>();
+        lifes = 3;
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (lifes == 0)
         {
-       PlayerDeath();
+            PlayerDeath();
         }
     }
 
-    /*void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         //Si se trabaja con Capas, o con tags o simplemente con el nombre
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
+        if (collision.gameObject.CompareTag("EnemyBullet")) 
         {
-            lifes--;
+            PlayerDeath();
         }
-        else if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+        /*else if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
         {
             // Sirve para poner el powerUp si es que se realiza
-        }
-    }*/
+        }*/
+    }
 
     public void PlayerDeath()
     {
@@ -41,11 +42,12 @@ public class Player : MonoBehaviour
             {
                 anim.SetTrigger("muerte");
                 Invoke(nameof(Muerte),1f);
+                isAlive = false;
             }
     }
     }
     private void Muerte()
     {
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 }

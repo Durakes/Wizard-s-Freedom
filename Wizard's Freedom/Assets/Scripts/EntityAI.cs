@@ -166,6 +166,9 @@ public class EntityAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        lifes--;    
+        if(other.gameObject.CompareTag("PlayerBullet"))
+        {
+            lifes--;
+        }   
     }
 }

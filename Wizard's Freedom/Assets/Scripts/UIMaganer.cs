@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,15 @@ public class UIMaganer : MonoBehaviour
     }
     public void RestaCorazones(int indice)
     {
-        Image imagenCora = listCorazones[indice].GetComponent<Image>();
-        imagenCora.sprite = corazondesactivad;
+        try 
+        {
+            Image imagenCora = listCorazones[indice].GetComponent<Image>();
+            imagenCora.sprite = corazondesactivad;
+        }
+        catch (Exception e)
+        {
+          Debug.Log("Muerto");
+        }
+        
     }
 }
