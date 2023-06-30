@@ -44484,6 +44484,8 @@ MonoBehaviour:
   - {fileID: 635798407}
   - {fileID: 465801747}
   - {fileID: 333939480}
+  - {fileID: 2124343416}
+  - {fileID: 2104745962}
   corazondesactivad: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
 --- !u!114 &1665568659
 MonoBehaviour:
