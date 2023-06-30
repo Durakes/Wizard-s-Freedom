@@ -150,14 +150,6 @@ public class EntityAI : MonoBehaviour
         directionShoot.Normalize();
         return directionShoot;
     }
-    
-
-    void FollowRangeAttack()
-    {
-        bullet = Instantiate(bulletPrefab, transform.position + ((Vector3)golemMovement * 1.3f),  Quaternion.identity); //1.3f cambiar valor
-        bullet.GetComponent<Rigidbody2D>().AddForce(golemMovement * 7f, ForceMode2D.Impulse); //7f cambiar valor
-    }
-
     void ThrowRock()
     {
         rock = Instantiate(rockPrefab, transform.position + ((Vector3)golemMovement * 1.5f),  Quaternion.identity);
