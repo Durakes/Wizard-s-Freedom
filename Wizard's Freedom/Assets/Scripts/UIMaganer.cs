@@ -28,7 +28,7 @@ public class UIMaganer : MonoBehaviour
         }
         catch (Exception e)
         {
-          Debug.Log("Muerto");
+          Debug.Log(e.Message);
         }
         
     }

@@ -152,6 +152,7 @@ public class BossAI : MonoBehaviour
     void FollowRangeAttack()
     {
         bulletBoss = Instantiate(bulletBossPrefab, transform.position + ((Vector3)movement * 1.3f),  Quaternion.identity); //1.3f cambiar valor
+        Physics2D.IgnoreCollision(bulletBoss.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
         bulletBoss.GetComponent<Rigidbody2D>().AddForce(movement * 7f, ForceMode2D.Impulse); //7f cambiar valor
     }
 
@@ -164,8 +165,8 @@ public class BossAI : MonoBehaviour
         Vector2 bulDir = (bulMoveVector - transform.position).normalized;
         
         bulletBoss = Instantiate(bulletBossPrefab, transform.position + ((Vector3)bulDir * 1.3f), Quaternion.identity);
+        Physics2D.IgnoreCollision(bulletBoss.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
         bulletBoss.GetComponent<Rigidbody2D>().AddForce(bulDir * 7f, ForceMode2D.Impulse);
-        Debug.Log("Circular");
 
         angle -= 10f;
     }
@@ -192,7 +193,10 @@ public class BossAI : MonoBehaviour
         bullet3.GetComponent<Rigidbody2D>().AddForce(bulDir2 * 7f, ForceMode2D.Impulse); //7f cambiar valor*/
         Physics2D.IgnoreCollision(bulletBoss.GetComponent<Collider2D>(), bullet2.GetComponent<Collider2D>());
         Physics2D.IgnoreCollision(bulletBoss.GetComponent<Collider2D>(), bullet3.GetComponent<Collider2D>()); //7f cambiar valor
-        Physics2D.IgnoreCollision(bullet2.GetComponent<Collider2D>(), bullet3.GetComponent<Collider2D>()); //7f cambiar valor
+        Physics2D.IgnoreCollision(bullet2.GetComponent<Collider2D>(), bullet3.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(bulletBoss.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(bullet2.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(bullet3.GetComponent<Collider2D>(), this.GetComponent<Collider2D>()); //7f cambiar valor
         Debug.Log("Fan");
     }
 
@@ -202,5 +206,9 @@ public class BossAI : MonoBehaviour
         {
             lifes--;
         }
+
+        rbBoss.inertia = 0f;   
+        rbBoss.velocity = Vector2.zero;
+        rbBoss.angularVelocity = 0f;
     }
 }

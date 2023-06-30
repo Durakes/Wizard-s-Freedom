@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject spiderPrefab;
     public GameObject gollemPrefab;
     public GameObject bossPrefab;
+    public GameObject skelletonPrefab;
     private GameObject player;
     [SerializeField] Vector2[] spiderPositions;
+    [SerializeField] Vector2[] skelletonPositions;
     [SerializeField] Vector2 gollemPosition;
     [SerializeField] Vector2 bossPosision;
     private void Awake()
@@ -101,7 +103,10 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Phase3:
                 InvokePhase3();
-                break;   
+                break;
+            case GameState.Phase5:
+                InvokePhase5();
+                break;      
             default:
                 break;
         }
@@ -118,7 +123,11 @@ public class GameManager : MonoBehaviour
 
     void InvokePhase2()
     {
-        //Invocar a los esqueletos.
+        GameObject[] skelletons = new GameObject[5];
+        for(int i = 0; i < 5; i++)
+        {
+            skelletons[i] = Instantiate(spiderPrefab, (Vector3)spiderPositions[i], Quaternion.identity);
+        }
     }
 
     void InvokePhase3()
@@ -131,7 +140,13 @@ public class GameManager : MonoBehaviour
         GameObject[] spiders = new GameObject[5];
         for(int i = 0; i < 5; i++)
         {
-            spiders[i] = Instantiate(spiderPrefab, (Vector3)spiderPositions[i], Quaternion.identity);
+            spiders[i] = Instantiate(skelletonPrefab, (Vector3)skelletonPositions[i], Quaternion.identity);
+        }
+
+        GameObject[] skelletons = new GameObject[5];
+        for(int i = 0; i < 5; i++)
+        {
+            skelletons[i] = Instantiate(spiderPrefab, (Vector3)spiderPositions[i], Quaternion.identity);
         }
     }
 

@@ -9,12 +9,13 @@ public class skelleton : MonoBehaviour
     public Vector3 puntoInicial;
     private Animator animator;
     private SpriteRenderer spriterenderer;
-    
+    private int lifes;
 
 
     // Start is called before the first frame update
     private void Start()
     {
+        lifes = 5;
         animator = GetComponent<Animator>();
         puntoInicial = transform.position;
         spriterenderer = GetComponent<SpriteRenderer>();
@@ -25,6 +26,11 @@ public class skelleton : MonoBehaviour
     {
         distancia = Vector2.Distance(transform.position, player.position);
         animator.SetFloat("Distancia", distancia);
+
+        if(lifes <= 0)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
     public void Girar(Vector3 objetivo)
@@ -47,6 +53,14 @@ public class skelleton : MonoBehaviour
         {
         animator.SetTrigger("Ataca");
          }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("PlayerBullet"))
+        {
+            lifes--;
+        }
     }
     
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9056927554915227}
   - component: {fileID: 9056927554915226}
   - component: {fileID: 9056927554915221}
-  - component: {fileID: 9056927554915220}
   - component: {fileID: 9056927554915223}
+  - component: {fileID: 1653419165059470564}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.45386362, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 3234629978573100161, guid: 577af9ee3459fdc409baca72b4ef2c2a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,32 +102,6 @@ MonoBehaviour:
   moveSpeed: 1.5
   player: {fileID: 7319080590303157502, guid: 9746ee461ad696d478b9dcafe4c6bf6c, type: 3}
   bulletBossPrefab: {fileID: 7685175281331463239, guid: 631b64a8debd2224cabacf0c227c211c, type: 3}
---- !u!61 &9056927554915220
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9056927554915222}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &9056927554915223
 Rigidbody2D:
   serializedVersion: 4
@@ -149,3 +123,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &1653419165059470564
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9056927554915222}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.53082633, y: -0.896507}
+  m_Size: {x: 0.89420366, y: 2.165319}
+  m_Direction: 0

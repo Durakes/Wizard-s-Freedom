@@ -153,6 +153,7 @@ public class EntityAI : MonoBehaviour
     void ThrowRock()
     {
         rock = Instantiate(rockPrefab, transform.position + ((Vector3)golemMovement * 1.5f),  Quaternion.identity);
+        Physics2D.IgnoreCollision(rock.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
         rock.GetComponent<Rigidbody2D>().AddForce(golemMovement * 10f, ForceMode2D.Impulse);
     }
 
@@ -161,7 +162,7 @@ public class EntityAI : MonoBehaviour
         moveSpeed = 5f;
         chaseDistance = 15f;
         numberAttacks = 5;
-        GetComponent<SpriteRenderer>().color = Color.green;
+        GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -169,6 +170,10 @@ public class EntityAI : MonoBehaviour
         if(other.gameObject.CompareTag("PlayerBullet"))
         {
             lifes--;
-        }   
+        }
+
+        rbGolem.inertia = 0f;   
+        rbGolem.velocity = Vector2.zero;
+        rbGolem.angularVelocity = 0f;
     }
 }
