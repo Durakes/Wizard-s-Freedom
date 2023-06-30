@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         Panel.SetActive(false);
+        ImageLose.SetActive(false);
+        ImageWin.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
