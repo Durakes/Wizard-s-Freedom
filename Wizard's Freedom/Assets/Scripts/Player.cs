@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] UIMaganer uiManager;
+    //[SerializeField] UIMaganer uiManager;
     private int lifes = 3;
     //private bool isAlive = true;
     private Animator anim;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
          if(lifes >= 0)
         {
             lifes--;
-            uiManager.RestaCorazones(lifes);
+            //uiManager.RestaCorazones(lifes);
             if(lifes == 0)
             {
                 anim.SetTrigger("muerte");

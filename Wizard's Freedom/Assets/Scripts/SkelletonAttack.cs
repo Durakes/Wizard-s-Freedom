@@ -11,7 +11,5 @@ public class SkelletonAttack : MonoBehaviour
             Player personaje = collision.gameObject.GetComponent<Player>();
             personaje.PlayerDeath();
         }
-        
     }
-    
 }
