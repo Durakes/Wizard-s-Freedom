@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]private int lifes;
-    private bool isAlive = true;
+    //[SerializeField] UIMaganer uiManager;
+    private int lifes = 3;
+    //private bool isAlive = true;
+    private Animator anim;
     void Awake()
     {
-        lifes = 3;
+       anim = GetComponent<Animator>();
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
        PlayerDeath();
+        }
     }
 
     /*void OnCollisionEnter2D(Collision2D collision)
@@ -31,12 +36,16 @@ public class Player : MonoBehaviour
          if(lifes >= 0)
         {
             lifes--;
-            //PlayerDeath();
-            //isAlive = false;
-            if (lifes == 0)
+            //uiManager.RestaCorazones(lifes);
+            if(lifes == 0)
             {
-                //Debug.Log("PIPIPIIP");
+                anim.SetTrigger("muerte");
+                Invoke(nameof(Muerte),1f);
             }
-        }
+    }
+    }
+    private void Muerte()
+    {
+        Destroy(this.gameObject);
     }
 }

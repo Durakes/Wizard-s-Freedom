@@ -73,11 +73,14 @@ public class skelletonmovement : MonoBehaviour
     {
         if(this.transform.position.x > objetivo.position.x)
         {
-            sprite.flipX=true;
+            //sprite.flipX=true;
+            transform.localScale = new Vector2(-5,5);
+
         }
         else 
         {
-            sprite.flipX =false;
+            //sprite.flipX =false;
+            transform.localScale = new Vector2(5,5);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
