@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         switch(newState)
         {
             case GameState.Phase1:
-                InvokePhase1();
+                InvokePhase2();
                 break;
             case GameState.Phase2:
                 InvokePhase2();
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         GameObject[] skelletons = new GameObject[5];
         for(int i = 0; i < 5; i++)
         {
-            skelletons[i] = Instantiate(spiderPrefab, (Vector3)spiderPositions[i], Quaternion.identity);
+            skelletons[i] = Instantiate(skelletonPrefab, (Vector3)spiderPositions[i], Quaternion.identity);
         }
     }
 

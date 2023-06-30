@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class skelleton : MonoBehaviour
 {
-    [SerializeField] public Transform player;
+    private Transform player;
     [SerializeField] private float distancia; 
     public Vector3 puntoInicial;
     private Animator animator;
@@ -19,6 +19,7 @@ public class skelleton : MonoBehaviour
         animator = GetComponent<Animator>();
         puntoInicial = transform.position;
         spriterenderer = GetComponent<SpriteRenderer>();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame

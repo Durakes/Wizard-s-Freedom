@@ -44597,7 +44597,7 @@ MonoBehaviour:
   spiderPrefab: {fileID: 798491608873476644, guid: af028d2f18ece2d4480a9527cd9f7915, type: 3}
   gollemPrefab: {fileID: 452406521064045903, guid: 0c58e24cb122782458c63390802f5cd7, type: 3}
   bossPrefab: {fileID: 9056927554915222, guid: d4fa4841dbc723b49a89528585c1544c, type: 3}
-  skelletonPrefab: {fileID: 0}
+  skelletonPrefab: {fileID: 1930714884870218088, guid: 7744cba4779005f44ac89a0ba2d8bc56, type: 3}
   spiderPositions:
   - {x: 3, y: 0}
   - {x: 0, y: 12}
