@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
                 if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
                 {
                     //! implementar fase 2
-                    UpdateGameState(GameState.Phase3);
+                    UpdateGameState(GameState.Phase2);
                 }
                 break;
             case GameState.Phase2:
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
                 if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
                 {
                     //! Implementar fase 4
-                    UpdateGameState(GameState.Phase5);
+                    UpdateGameState(GameState.Phase4);
                 }
                 break;
             case GameState.Phase4:
